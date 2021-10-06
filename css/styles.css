@@ -35,6 +35,7 @@ img {
 .link {
     text-decoration: none;
     color: inherit;
+    transition: color 250ms var(--time-cubic), fill 250ms var(--time-cubic);
 }
 .mail-opacity:hover,
 .mail-opacity:focus {
@@ -85,15 +86,21 @@ img {
     position: relative;
     color: var(--logo-color);
 }
-.currentlink::after {
+.curr-link::after {
 	position: absolute;
-    top: 46px;
+    bottom: 0;
     left:0;
 	content: '';
     height: 4px;
     width: 100%;
     background-color: var(--logo-color);
+    border-radius: 2px;
     transition: background-color 250ms var(--time-cubic);
+}
+.curr-link {
+    position: relative;
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 /* ------HEADER------ */
 .header {
@@ -213,6 +220,7 @@ img {
     letter-spacing: 0.06em;
     cursor: pointer;
     border: none;
+    transition: background-color 250ms var(--time-cubic), box-shadow 250ms var(--time-cubic);
 }
 .order:hover {
     background-color: #188CE8;
@@ -240,6 +248,9 @@ img {
     margin: 0;
     border-radius: 4px;
     transition: 0.1s linear;
+    transition: color 250ms var(--time-cubic), 
+    background-color 250ms var(--time-cubic),
+    box-shadow 250ms var(--time-cubic);
 }
 
 /* ------QUALITY SECTION------ */
@@ -305,6 +316,8 @@ img {
     margin-bottom: 0;
 }
 .directions-img {
+    display: flex;
+    align-items: flex-end;
     position: relative;
     margin-top: 30px;
     margin-left: 30px;
@@ -312,7 +325,6 @@ img {
 }
 .directions-img-text {
     position: absolute;
-    top: 224px;
     width: 370px;
     height: 70px;
     padding-bottom: 27px;
@@ -383,9 +395,11 @@ img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
+    transition: background-color 250ms var(--time-cubic), fill 250ms var(--time-cubic);
 }
 .social-list-icon {
     fill: #AFB1B8;
+    transition: fill 250ms var(--time-cubic);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -408,6 +422,7 @@ img {
     margin-top: 30px;
     margin-left: 30px;
     flex-basis: calc((100% - 180px) / 6);
+    transition: border 250ms var(--time-cubic)
 }
 .clients-list-link {
     display: flex;
@@ -418,9 +433,11 @@ img {
     border: 1px solid #AFB1B8;
     box-sizing: border-box;
     border-radius: 4px;
+    transition: fill 250ms var(--time-cubic)
 }
 .clients-list-ico {
     fill: #afb1b8;
+    transition: fill 250ms var(--time-cubic)
 }
 .clients-list:hover .clients-list-link,
 .clients-list:focus .clients-list-link{
@@ -458,45 +475,31 @@ img {
     color: inherit;
 }
 .projects-box:nth-last-child(-n+3) {
-    margin-bottom: 0;
+    margin-bottom: 0;   
 }
-.bbb {
+.image-wrap {
     position: relative;
+    overflow: hidden;
 }
-.aaa {
-    
-}
-.appearing-text {
-    align-content: center;
-    text-align: center;
+.image-wrap-info {
     position: absolute;
+    left: 0;
     top: 0;
-    height: 294px;
-    padding: 0;
+    width: 100%;
+    height: 101%;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
-    color: #191818;
-    transform: translateY(100%);
-
-}
-.appearing-text::before {
-    display: block;
-    content: '';
-    position: absolute;
-    visibility: hidden;
-    top: -30px;
-    left: 0;
-    width: 370px;
-    height: 294px;
     background-color: rgba(33, 150, 243, 0.9);
+    color: #fff;
+    padding: 63px 24px;
     transform: translateY(100%);
     transition: transform 250ms var(--time-cubic);
 }
-.projects-box:hover .appearing-text::before {
-    visibility: visible;
+.projects-box:hover .image-wrap-info {
+    top: 0;
     transform: translateY(0);
 }
 .project-box-border {
@@ -505,6 +508,7 @@ img {
     border-right: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
     border-left: 1px solid #EEEEEE;
+    transition: transform 250ms var(--time-cubic)
 }
 .project-box-shadow:hover {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -534,8 +538,7 @@ footer {
 .footer-container {
     display: flex;
 }
-.footer-box {
-    
+.footer-leftside {
     min-width: 231px;
 }
 .logo-footer {
@@ -576,6 +579,10 @@ address {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
+    transition: color 250ms var(--time-cubic);
+}
+.footer-rightside {
+    padding-top: 12px;
 }
 .footer-social {
     display: flex;
@@ -609,11 +616,9 @@ address {
 }
 .footer-social-icon {
     fill: #ffffff;
- 
 }
 .footr-icons:not(:last-child) {
     margin-right: 10px;
-    
 }
 .footer-social-link {
     display: flex;
@@ -623,6 +628,7 @@ address {
     height: 44px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms var(--time-cubic);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
@@ -663,6 +669,8 @@ address {
     width: 528px;
     height: 580px;
     background-color: #ffffff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
   }
   .button-close {
     position: absolute;
